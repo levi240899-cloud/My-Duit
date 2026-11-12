@@ -1,11 +1,11 @@
-const CACHE_NAME = 'keuanganku-v1';
+const CACHE_NAME = 'keuanganku-v2';
 const urlsToCache = [
   './',
   './index.html',
-  './manifest.json'
+  './manifest.json',
+  './4.png'
 ];
 
-// Install Service Worker dan Cache file utama
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -15,7 +15,6 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Aktivasi & Hapus Cache Lama
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -31,13 +30,10 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Interaksi Fetch (Langsung teruskan request ke Google Apps Script)
 self.addEventListener('fetch', (event) => {
   if (event.request.url.includes('script.google.com')) {
-    event.respondWith(fetch(event.request));
     return;
   }
-
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       return cachedResponse || fetch(event.request);
