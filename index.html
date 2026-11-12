@@ -1,14 +1,46 @@
-<!-- PWA Manifest -->
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#121212">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then((reg) => console.log('Service Worker terdaftar:', reg.scope))
-        .catch((err) => console.log('Pendaftaran Service Worker gagal:', err));
-    });
-  }
-</script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keuanganku</title>
+    
+    <!-- PWA Manifest & Meta Tags -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#121212">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #121212;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menampilkan Web App Google Apps Script secara Fullscreen -->
+    <iframe src="https://script.google.com/macros/s/AKfycbxw-Cp6jH0XsNwdM_AOUaU6zZ27ieUKAyQgeVc1ucrwQMymutRyj680Vi5Lwp9ZORLeTg/exec"></iframe>
+
+    <!-- Pendaftaran Service Worker untuk PWA -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then((reg) => console.log('Service Worker terdaftar:', reg.scope))
+            .catch((err) => console.log('Pendaftaran Service Worker gagal:', err));
+        });
+      }
+    </script>
+</body>
+</html>
