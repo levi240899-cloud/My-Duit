@@ -11,28 +11,16 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #121212;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+    <!-- Skrip Redirect Langsung ke Web App Google Apps Script -->
+    <script>
+        // Redirect otomatis ke aplikasi utama Anda
+        window.location.replace("https://script.google.com/macros/s/AKfycbxw-Cp6jH0XsNwdM_AOUaU6zZ27ieUKAyQgeVc1ucrwQMymutRyj680Vi5Lwp9ZORLeTg/exec");
+    </script>
 </head>
-<body>
+<body style="background-color: #121212; color: white; font-family: sans-serif; text-align: center; padding-top: 50px;">
+    <p>Memuat Keuanganku...</p>
 
-    <!-- Menampilkan Web App Google Apps Script secara Fullscreen -->
-    <iframe src="https://script.google.com/macros/s/AKfycbxw-Cp6jH0XsNwdM_AOUaU6zZ27ieUKAyQgeVc1ucrwQMymutRyj680Vi5Lwp9ZORLeTg/exec"></iframe>
-
-    <!-- Pendaftaran Service Worker untuk PWA -->
+    <!-- Pendaftaran Service Worker PWA -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
