@@ -1,8 +1,8 @@
 {
-  "id": "/My-Duit/",
+  "id": "/My-Duit/?v=2",
   "name": "Keuanganku",
   "short_name": "Keuanganku",
-  "start_url": "/My-Duit/index.html",
+  "start_url": "/My-Duit/index.html?v=2",
   "scope": "/My-Duit/",
   "display": "standalone",
   "background_color": "#121212",
